@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 # Install .NET Core
-ENV DOTNET_VERSION 2.1.17
+ENV DOTNET_VERSION 3.0.3
 ENV RUNNER_VERSION="2.168.0"
 
 RUN wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/$DOTNET_VERSION/dotnet-runtime-$DOTNET_VERSION-linux-musl-x64.tar.gz \
