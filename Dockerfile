@@ -15,6 +15,7 @@ RUN wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/$DOTNET
         docker \
         supervisor \
         curl \
+        bash \
     && curl -sL https://github.com/docker/docker/raw/master/hack/dind > /usr/local/bin/dind \
     && chmod +x /usr/local/bin/dind \
     && mkdir /runner \
