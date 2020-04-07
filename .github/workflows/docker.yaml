@@ -1,0 +1,28 @@
+name: Docker Image Build
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  docker:
+    name: Docker Image
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Login to docker hub
+      uses: actions-hub/docker/login@master
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+    - name: Build :latest
+      run: docker build -t indexyz/github-runner .
+
+    - name: Push to docker hub :latest
+      uses: actions-hub/docker@master
+      with:
+        args: push indexyz/github-runner
